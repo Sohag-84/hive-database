@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_database/views/counter_app.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'views/home_screen.dart';
@@ -7,6 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox("shopping_box");
+  await Hive.openBox("counter_box");
   runApp(const MyApp());
 }
 
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const CounterScreen(),
     );
   }
 }
